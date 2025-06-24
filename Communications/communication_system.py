@@ -44,3 +44,4 @@ class CommunicationSystem(BaseSubsystem):
     def set_window(self, open: bool):
         """Activa o desactiva la ventana de comunicación con la Tierra"""
         self.window_open = open
+        
