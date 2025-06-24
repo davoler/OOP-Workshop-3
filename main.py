@@ -1,4 +1,4 @@
-from systems.power_system import PowerSystem
+from Sistemas.power_system import PowerSystem
 import time
 
 # Crear e inicializar el subsistema de energía
