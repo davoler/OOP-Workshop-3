@@ -87,9 +87,6 @@ class TempSensor(BaseSubsystem):
         self.environment_temp = 25.0
 
     def update(self, dt: float, battery_level: float, in_eclipse: bool):
-        if self.failed:
-            self.state = "failed"
-            return
 
         self.elapsed_time += dt
 
