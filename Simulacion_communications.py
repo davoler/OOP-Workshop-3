@@ -1,4 +1,4 @@
-#Simulación del subsistema de comunicaciones+
+#Simulación del subsistema de comunicaciones
 
 from Communications.communication_system import CommunicationSystem
 
