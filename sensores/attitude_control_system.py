@@ -3,11 +3,11 @@
 class AttitudeControlSystem:
     def __init__(self, sensors, actuator):
         self.__orientation = [0.0, 0.0, 0.0]  # Roll, pitch, yaw
-        self.sensors = sensors               # Lista de objetos Sensor
+        self.sensors = sensors               
         self.actuator = actuator
 
     def update_attitude(self):
-        print("📡 Lectura de sensores...")
+        print(" Lectura de sensores:")
         all_data = []
         for sensor in self.sensors:
             data = sensor.read_data()
@@ -16,7 +16,7 @@ class AttitudeControlSystem:
         return all_data
 
     def apply_control(self, desired_orientation):
-        print(f"🎯 Objetivo: {desired_orientation}")
+        print(f" Objetivo: {desired_orientation}")
         error = [desired_orientation[i] - self.__orientation[i] for i in range(3)]
         print(f"🔧 Error calculado: {error}")
         self.actuator.apply_torque(error)

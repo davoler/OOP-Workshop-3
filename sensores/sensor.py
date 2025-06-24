@@ -3,7 +3,7 @@ import os
 
 # Asegura que se pueda importar desde la raíz del proyecto
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+                                             
 # sensor.py
 from Sistemas.base_subsystem import BaseSubsystem
 import random

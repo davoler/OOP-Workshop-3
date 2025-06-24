@@ -11,9 +11,9 @@ if __name__ == "__main__":
     # Sistema de control de actitud
     adcs = AttitudeControlSystem([gyro, sun], actuator)
 
-    # Simular 3 ciclos
-    for ciclo in range(1, 4):
-        print(f"\n🛰️ Ciclo de simulación #{ciclo}")
+    # Simular 10 ciclos
+    for ciclo in range(1, 11):
+        print(f"\n Ciclo de simulación #{ciclo}")
         adcs.update_attitude()
         adcs.apply_control([0.05 * ciclo, -0.02 * ciclo, 0.03 * ciclo])
         estado = adcs.get_status()
