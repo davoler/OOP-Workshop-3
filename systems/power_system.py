@@ -1,4 +1,4 @@
-from base_subsystem import BaseSubsystem
+from systems.base_subsystem import BaseSubsystem
 
 class PowerSystem(BaseSubsystem):
     def __init__(self):
