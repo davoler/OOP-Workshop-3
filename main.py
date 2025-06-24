@@ -1,11 +1,14 @@
-from Sistemas.power_system import PowerSystem
+
+#Simulación del subsistema de energía con eclipse
+
+from Power.power_system import PowerSystem
 import time
 
 # Crear e inicializar el subsistema de energía
 power = PowerSystem()
 power.initialize()
 
-# Simulación por 60 segundos (con paso de 1 segundo)
+# Simulación por 1000 segundos (con paso de 1 segundo)
 print("\n🔋 Iniciando simulación sin eclipse...")
 for t in range(1, 31):  # primeros 30 segundos con sol
     power.update(dt=1.0)
