@@ -32,3 +32,5 @@ for t in range(460, 1000):
     power.update(dt=1.0)
     print(f"⏱️  {t:02d}s - Batería: {power.battery_level:.1f}% - Activo: {power.active}")
     time.sleep(0.05)
+    
+    
