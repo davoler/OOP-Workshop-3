@@ -19,7 +19,7 @@ for t in range(1, 31):  # primeros 30 segundos con sol
 power.set_eclipse(True)
 print("\n🌑 Eclipse activado (sin generación solar)...")
 
-for t in range(31, 460):
+for t in range(31, 500):
     power.update(dt=1.0)
     print(f"⏱️  {t:02d}s - Batería: {power.battery_level:.1f}% - Activo: {power.active}")
     time.sleep(0.05)
@@ -28,7 +28,7 @@ for t in range(31, 460):
 power.set_eclipse(False)
 print("\n☀️ Eclipse desactivado (con generación solar)...")
 
-for t in range(460, 1000):
+for t in range(500, 1000):
     power.update(dt=1.0)
     print(f"⏱️  {t:02d}s - Batería: {power.battery_level:.1f}% - Activo: {power.active}")
     time.sleep(0.05)
