@@ -35,6 +35,7 @@ class PowerSystem(BaseSubsystem):
             self.active = True
             print(f"[{self.name}] Sistema reactivado.")
 
+
     def set_eclipse(self, state: bool):
         """
         Cambia el estado de eclipse (True = sin luz solar).
