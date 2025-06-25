@@ -22,23 +22,20 @@ class TermalCam(BaseSubsystem):
         self.cooldown_rate = 0.0833  # tasa de enfriamiento (°C/s) en eclipse. Originalmente se definió de 5 °C/min
         self.heatup_rate = 0.0833    # tasa de calentamiento (°C/s) en luz solar. Tambien e definió de 5 °C/min
         self.generated_data = []    # pa guardar las imágenes
-        self.elapsed_time = 0       # pa registrar el tiempo desde el inicio de la simulación
 
     def initialize(self):
         print(f"{self.name} initialized.")
         self.state = "idle"
         self.temperature = 25.0
         self.generated_data.clear()
-        self.elapsed_time = 0
 
-    def update(self, dt: float, battery_level: float, in_eclipse: bool, orientation_ok: bool = True):
+    def update(self, dt: float, battery_level: float, in_eclipse: bool, orientation_ok: bool, time_elapsed: float):
     #estas variables son iguales que las usadas en el power system y sensor system
-        self.elapsed_time += dt
         if in_eclipse:
             self.temperature = max(self.temperature - self.cooldown_rate * dt, -100)
         else:
             self.temperature = min(self.temperature + self.heatup_rate * dt, 100)
-        if int(self.elapsed_time) % 600 != 0: #Toma de fotos cada 10 min
+        if int(time_elapsed) % 600 != 0: #Toma de fotos cada 10 min
             self.state = "idle"
             return
 
@@ -59,7 +56,7 @@ class TermalCam(BaseSubsystem):
             return
         #El codigo a continuacion busca crear un ID unico para cada imagen, lo guarda segun tiempo y temperatura, y lo que imprime es la imagen capturada
         self.state = "active"
-        image_id = f"img_t{int(self.elapsed_time)}_T{round(self.temperature, 1)}"
+        image_id = f"img_t{int(time_elapsed)}_T{round(self.temperature, 1)}"
         self.generated_data.append(image_id)
         print(f"{self.name} captured image: {image_id}")
 
@@ -126,6 +123,6 @@ class PayloadSystem(BaseSubsystem):
         self.camera.initialize()
         self.sensor.initialize()
 
-    def update(self, dt: float, battery_level: float, in_eclipse: bool, orientation_ok: bool):
-        self.camera.update(dt, battery_level, in_eclipse, orientation_ok)
+    def update(self, dt: float, battery_level: float, in_eclipse: bool, orientation_ok: bool, time_elapsed):
+        self.camera.update(dt, battery_level, in_eclipse, orientation_ok, time_elapsed)
         self.sensor.update(dt, battery_level, in_eclipse)

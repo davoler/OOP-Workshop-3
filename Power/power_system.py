@@ -6,8 +6,8 @@ class PowerSystem(BaseSubsystem):
 
         # Atributos específicos de este subsistema
         self.battery_level = 100.0        # en porcentaje (%)
-        self.solar_input = 20.0           # energía generada por segundo (W)
-        self.consumption_rate = 18.0      # energía consumida por segundo (W)
+        self.solar_input = 30.0           # energía generada por segundo (W)
+        self.consumption_rate = 10.0      # energía consumida por segundo (W)
         self.in_eclipse = False           # True si no hay sol (eclipse)
 
     def initialize(self):

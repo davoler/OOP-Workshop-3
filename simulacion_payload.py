@@ -5,7 +5,7 @@ payload.initialize()
 
 # Parámetros de simulación
 dt = 60  # paso de tiempo en segundos
-total_simulation_time = 7200  # 1 hora 
+total_simulation_time = 700  # 1 hora 
 steps = total_simulation_time // dt
 
 # Variables de entorno
@@ -30,5 +30,5 @@ for step in range(int(steps)):
         dt=dt,
         battery_level=battery_level,
         in_eclipse=in_eclipse,
-        orientation_ok=orientation_ok
-    )
+        orientation_ok=orientation_ok,
+        time_elapsed=current_time)
